@@ -1,0 +1,25 @@
+{
+  "name": "@rx4u/examples",
+  "version": "1.0.0",
+  "description": "rx4u usage examples and demos",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "run": "tsx index.ts"
+  },
+  "keywords": [
+    "reactive",
+    "examples",
+    "demo"
+  ],
+  "author": "rx4dev",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.2",
+  "dependencies": {
+    "rx4u": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "4.23.0"
+  }
+}

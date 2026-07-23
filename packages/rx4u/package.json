@@ -1,0 +1,64 @@
+{
+  "name": "rx4u",
+  "version": "0.1.8",
+  "type": "module",
+  "description": "Reactive data flow processing library",
+  "files": [
+    "*.js",
+    "*.cjs",
+    "*.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.es.js",
+  "main": "./dist/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.es.js",
+      "require": "./index.cjs",
+      "default": "./index.min.js"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "test:run": "vitest run",
+    "test:watch": "vitest",
+    "build": "vite build && node ./scripts/build.js",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "prepublishOnly": "npm run build",
+    "pack:check": "npm pack --dry-run ./dist",
+    "publish:package": "npm run build && npm publish ./dist --access public"
+  },
+  "keywords": [
+    "rx4u",
+    "Functional",
+    "Reactive",
+    "Stream",
+    "Streams",
+    "Data Stream",
+    "Rx",
+    "RxJS",
+    "ReactiveX",
+    "Observer",
+    "Observers",
+    "Observables",
+    "Observable",
+    "ES6",
+    "Tree Shaking"
+  ],
+  "author": "rx4dev",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "pnpm@10.6.2",
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.58.9",
+    "@rollup/plugin-terser": "^1.0.0",
+    "typescript": "^6.0.3",
+    "unplugin-dts": "^1.0.3",
+    "vite": "^8.1.4"
+  }
+}

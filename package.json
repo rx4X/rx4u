@@ -1,0 +1,33 @@
+{
+  "name": "rx4u-workspace",
+  "version": "1.0.0",
+  "description": "Reactive data flow processing library - like RxJS but with pure functions",
+  "private": true,
+  "scripts": {
+    "install-all": "pnpm i -r",
+    "test": "pnpm -r test:run",
+    "test:watch": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm -r build"
+  },
+  "keywords": [
+    "reactive",
+    "observable",
+    "stream",
+    "functional",
+    "rxjs"
+  ],
+  "author": "rx4dev",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.2",
+  "pnpm": {
+    "overrides": {
+      "yaml": "2.8.3"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "8.1.4",
+    "vitest": "4.1.10"
+  }
+}
