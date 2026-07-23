@@ -76,7 +76,7 @@ export function Navigation() {
             <LanguageToggle />
             {/* GitHub Link */}
             <a
-              href="https://github.com/rx4dev/rx4u"
+              href="https://github.com/rx4X/rx4u"
               target="_blank"
               rel="noopener noreferrer"
               class="navigation-icon-link"

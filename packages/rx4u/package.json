@@ -2,7 +2,15 @@
   "name": "rx4u",
   "version": "0.1.8",
   "type": "module",
-  "description": "Reactive data flow processing library",
+  "description": "rx4u is a small reactive stream library for JavaScript and TypeScript. It is inspired by RxJS, but it uses plain functions instead of Observable classes. A stream is just a function. Operators are also functions. You compose them with `pipeFrom`.",
+  "homepage": "https://github.com/rx4X/rx4u",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rx4X/rx4u.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rx4X/rx4u/issues"
+  },
   "files": [
     "*.js",
     "*.cjs",
@@ -48,7 +56,7 @@
     "ES6",
     "Tree Shaking"
   ],
-  "author": "rx4dev",
+  "author": "rx4X",
   "license": "MIT",
   "engines": {
     "node": ">=20.19.0"
