@@ -9,8 +9,8 @@ createPackageJsonFile(packageDirPath);
 copyFiles(packageDirPath);
 
 function createPackageJsonFile(packageDirPath) {
-  const {name, version, description, keywords, type, sideEffects, exports, files, author, license, engines} = pkg;
-  const content = {name, version, description, keywords, type, sideEffects, exports, files, author, license, engines};
+  const {name, version, description, homepage, repository, bugs, keywords, type, sideEffects, exports, files, author, license, engines} = pkg;
+  const content = {name, version, description, homepage, repository, bugs, keywords, type, sideEffects, exports, files, author, license, engines};
   writeFileSync(resolve(packageDirPath, 'dist/package.json'), JSON.stringify(content, null, 2), 'utf8');
 }
 

@@ -1,3 +1,4 @@
+import {A} from '@solidjs/router';
 import {createSignal, For, Show} from 'solid-js';
 
 import {CodeBlock} from '../../components/CodeBlock';
@@ -23,12 +24,32 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const OPERATOR_DESCRIPTIONS_ZH: Record<string, string> = {
-  from: '从同步工厂函数创建流。', fromPromise: '从 Promise 工厂函数创建流。', of: '创建按顺序发出给定值的流。', interval: '创建按指定间隔发出连续数字的流。',
-  map: '使用投射函数转换每个发出的值。', switchMap: '将每个值投射为新流，并切换到最新投射。', mergeMap: '将每个值投射为流，并合并所有并发流。', concatMap: '将每个值投射为流，并按顺序连接。',
-  filter: '只发出满足给定谓词函数的值。', take: '只发出源流的前 N 个值。', skip: '跳过源流的前 N 个值。', distinctUntilChanged: '仅在当前值不同于前一个值时发出。',
-  merge: '将多个流合并为单个流。', combineLatest: '任意源流发出值时组合所有流的最新值。', zip: '按位置组合多个流中的值。',
-  tap: '为源流通知执行副作用。', debounceTime: '在指定静默期后才发出值。', throttleTime: '在每个时间段内最多发出一个值。', share: '在订阅者之间共享一次源流订阅。', startWith: '在源流值之前发出指定值。', endWith: '在源流完成后发出指定值。',
-  catchError: '捕获错误并使用回退流继续执行。', retry: '源流发生错误时重试。', retryWhen: '根据自定义重试逻辑重试。', scan: '应用累加器函数并发出每个中间结果。', reduce: '应用累加器函数，并在源流完成时发出最终结果。',
+  from: '从同步工厂函数创建流。',
+  fromPromise: '从 Promise 工厂函数创建流。',
+  of: '创建按顺序发出给定值的流。',
+  interval: '创建按指定间隔发出连续数字的流。',
+  map: '使用投射函数转换每个发出的值。',
+  switchMap: '将每个值投射为新流，并切换到最新投射。',
+  mergeMap: '将每个值投射为流，并合并所有并发流。',
+  concatMap: '将每个值投射为流，并按顺序连接。',
+  filter: '只发出满足给定谓词函数的值。',
+  take: '只发出源流的前 N 个值。',
+  skip: '跳过源流的前 N 个值。',
+  distinctUntilChanged: '仅在当前值不同于前一个值时发出。',
+  merge: '将多个流合并为单个流。',
+  combineLatest: '任意源流发出值时组合所有流的最新值。',
+  zip: '按位置组合多个流中的值。',
+  tap: '为源流通知执行副作用。',
+  debounceTime: '在指定静默期后才发出值。',
+  throttleTime: '在每个时间段内最多发出一个值。',
+  share: '在订阅者之间共享一次源流订阅。',
+  startWith: '在源流值之前发出指定值。',
+  endWith: '在源流完成后发出指定值。',
+  catchError: '捕获错误并使用回退流继续执行。',
+  retry: '源流发生错误时重试。',
+  retryWhen: '根据自定义重试逻辑重试。',
+  scan: '应用累加器函数并发出每个中间结果。',
+  reduce: '应用累加器函数，并在源流完成时发出最终结果。',
 };
 
 const operators: OperatorInfo[] = [
@@ -336,21 +357,21 @@ export function Operators() {
       <h1>{language() === 'zh' ? '操作符参考' : 'Operators Reference'}</h1>
 
       <p>
-        {language() === 'zh'
-          ? <>本页汇总了用于创建、转换、过滤和组合流的常用函数。可使用 <code>pipeFrom</code> 函数组合操作符。</>
-          : <>This page summarizes commonly used functions for creating, transforming, filtering, and combining streams. Operators can be composed using the{' '}<code>pipeFrom</code> function.</>}
+        {language() === 'zh' ? (
+          <>
+            本页汇总了用于创建、转换、过滤和组合流的常用函数。可使用 <code>pipeFrom</code> 函数组合操作符。
+          </>
+        ) : (
+          <>
+            This page summarizes commonly used functions for creating, transforming, filtering, and combining streams. Operators can be composed using the <code>pipeFrom</code> function.
+          </>
+        )}
       </p>
 
       {/* Search */}
       <div class="operator-search">
         <div>
-          <input
-            type="text"
-            placeholder={language() === 'zh' ? '搜索操作符...' : 'Search operators...'}
-            value={searchTerm()}
-            onInput={(e) => setSearchTerm(e.currentTarget.value)}
-
-          />
+          <input type="text" placeholder={language() === 'zh' ? '搜索操作符...' : 'Search operators...'} value={searchTerm()} onInput={(e) => setSearchTerm(e.currentTarget.value)} />
         </div>
       </div>
 
@@ -359,10 +380,7 @@ export function Operators() {
         <div>
           <For each={categories}>
             {(category) => (
-              <button
-                onClick={() => setSelectedCategory(category.id)}
-                class={`category-button ${selectedCategory() === category.id ? 'is-selected' : ''}`}
-              >
+              <button onClick={() => setSelectedCategory(category.id)} class={`category-button ${selectedCategory() === category.id ? 'is-selected' : ''}`}>
                 {language() === 'zh' ? CATEGORY_LABELS[category.id] : category.name}
               </button>
             )}
@@ -418,7 +436,15 @@ export function Operators() {
       <h3>{language() === 'zh' ? '基础组合' : 'Basic Composition'}</h3>
 
       <p>
-        {language() === 'zh' ? <>所有操作符都可以与 <code>pipeFrom</code> 函数配合使用：</> : <>All operators are designed to work with the <code>pipeFrom</code> function:</>}
+        {language() === 'zh' ? (
+          <>
+            所有操作符都可以与 <code>pipeFrom</code> 函数配合使用：
+          </>
+        ) : (
+          <>
+            All operators are designed to work with the <code>pipeFrom</code> function:
+          </>
+        )}
       </p>
 
       <div>
@@ -476,37 +502,25 @@ const result$ = pipeFrom(
 
       <div class="operator-next-steps">
         <div>
-          <a
-            href="/docs/core-concepts"
-
-          >
+          <A href="/docs/core-concepts">
             <h3>{language() === 'zh' ? '核心概念' : 'Core Concepts'}</h3>
             <p>{language() === 'zh' ? '了解基础概念' : 'Learn the fundamental concepts'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/examples"
-
-          >
+          <A href="/examples">
             <h3>{language() === 'zh' ? '示例' : 'Examples'}</h3>
             <p>{language() === 'zh' ? '查看操作符实际运行' : 'See operators in action'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/playground"
-
-          >
+          <A href="/playground">
             <h3>{language() === 'zh' ? '练习场' : 'Playground'}</h3>
             <p>{language() === 'zh' ? '浏览可编辑的 rx4u 示例' : 'Browse editable rx4u examples'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/api"
-
-          >
+          <A href="/api">
             <h3>{language() === 'zh' ? 'API 参考' : 'API Reference'}</h3>
             <p>{language() === 'zh' ? '完整 API 文档' : 'Complete API documentation'}</p>
-          </a>
+          </A>
         </div>
       </div>
     </article>

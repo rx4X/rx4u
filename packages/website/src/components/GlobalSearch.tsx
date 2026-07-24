@@ -1,5 +1,5 @@
 import {createSignal, Show, For, onCleanup, onMount} from 'solid-js';
-import {A} from '@solidjs/router';
+import {A, useNavigate} from '@solidjs/router';
 
 import {useLanguage} from './LanguageProvider';
 
@@ -67,9 +67,33 @@ const API_SEARCH_RESULTS: SearchResult[] = [
 
 const searchData: SearchResult[] = [
   // Documentation pages
-  {title: 'Getting Started', titleZh: '快速开始', description: 'Quick introduction and setup guide', descriptionZh: '快速介绍和安装指南', url: '/docs/getting-started', category: 'Documentation', categoryZh: '文档'},
-  {title: 'Core Concepts', titleZh: '核心概念', description: 'Understanding streams, operators, and composition', descriptionZh: '理解流、操作符和组合', url: '/docs/core-concepts', category: 'Documentation', categoryZh: '文档'},
-  {title: 'Operators', titleZh: '操作符', description: 'Complete guide to all available operators', descriptionZh: '完整的操作符使用指南', url: '/docs/operators', category: 'Documentation', categoryZh: '文档'},
+  {
+    title: 'Getting Started',
+    titleZh: '快速开始',
+    description: 'Quick introduction and setup guide',
+    descriptionZh: '快速介绍和安装指南',
+    url: '/docs/getting-started',
+    category: 'Documentation',
+    categoryZh: '文档',
+  },
+  {
+    title: 'Core Concepts',
+    titleZh: '核心概念',
+    description: 'Understanding streams, operators, and composition',
+    descriptionZh: '理解流、操作符和组合',
+    url: '/docs/core-concepts',
+    category: 'Documentation',
+    categoryZh: '文档',
+  },
+  {
+    title: 'Operators',
+    titleZh: '操作符',
+    description: 'Complete guide to all available operators',
+    descriptionZh: '完整的操作符使用指南',
+    url: '/docs/operators',
+    category: 'Documentation',
+    categoryZh: '文档',
+  },
 
   // API Reference
   ...API_SEARCH_RESULTS,
@@ -81,6 +105,7 @@ const searchData: SearchResult[] = [
 
 export function GlobalSearch() {
   const {language} = useLanguage();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = createSignal(false);
   const [query, setQuery] = createSignal('');
   const [results, setResults] = createSignal<SearchResult[]>([]);
@@ -126,7 +151,7 @@ export function GlobalSearch() {
         e.preventDefault();
         const selected = results()[selectedIndex()];
         if (selected) {
-          window.location.href = selected.url;
+          navigate(selected.url);
           closeSearch();
         }
         break;
@@ -173,11 +198,7 @@ export function GlobalSearch() {
   return (
     <div class="global-search" ref={setSearchContainerRef}>
       {/* Search Button */}
-      <button
-        onClick={openSearch}
-        class="search-trigger"
-        title={`${language() === 'zh' ? '搜索' : 'Search'} (⌘K)`}
-      >
+      <button onClick={openSearch} class="search-trigger" title={`${language() === 'zh' ? '搜索' : 'Search'} (⌘K)`}>
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
@@ -226,11 +247,7 @@ export function GlobalSearch() {
                 >
                   <For each={results()}>
                     {(result, index) => (
-                      <A
-                        href={result.url}
-                        onClick={closeSearch}
-                        class={`search-result ${selectedIndex() === index() ? 'is-selected' : ''}`}
-                      >
+                      <A href={result.url} onClick={closeSearch} class={`search-result ${selectedIndex() === index() ? 'is-selected' : ''}`}>
                         <div class="search-result-content">
                           <div>
                             <h4>{language() === 'zh' ? result.titleZh : result.title}</h4>

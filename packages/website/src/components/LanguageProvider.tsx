@@ -1,10 +1,14 @@
-import {createContext, createSignal, onMount, useContext, type ParentProps} from 'solid-js';
+import {createContext, createSignal, useContext, type ParentProps} from 'solid-js';
 
 export type Language = 'en' | 'zh';
 
 interface LanguageContextType {
   language: () => Language;
   setLanguage: (language: Language) => void;
+}
+
+interface LanguageProviderProps extends ParentProps {
+  initialLanguage: Language;
 }
 
 const LanguageContext = createContext<LanguageContextType>();
@@ -19,21 +23,25 @@ export function useLanguage() {
   return context;
 }
 
-export function LanguageProvider(props: ParentProps) {
-  const [language, setLanguageSignal] = createSignal<Language>('en');
+export function LanguageProvider(props: LanguageProviderProps) {
+  const [language, setLanguageSignal] = createSignal<Language>(props.initialLanguage);
 
   function setLanguage(newLanguage: Language) {
+    const locale = newLanguage === 'zh' ? 'zh-CN' : 'en-US';
+    const url = new URL(window.location.href);
+
     setLanguageSignal(newLanguage);
     localStorage.setItem('rx4u-language', newLanguage);
     document.documentElement.lang = newLanguage === 'zh' ? 'zh-CN' : 'en';
-  }
+    document.cookie = `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
 
-  onMount(() => {
-    const savedLanguage = localStorage.getItem('rx4u-language');
-    const browserLanguage = navigator.language.toLowerCase();
-    const initialLanguage: Language = savedLanguage === 'zh' || (!savedLanguage && browserLanguage.startsWith('zh')) ? 'zh' : 'en';
-    setLanguage(initialLanguage);
-  });
+    const pathname = url.pathname.replace(/^\/(?:en-US|zh-CN)(?=\/|$)/, '') || '/';
+    url.pathname = pathname;
+
+    if (url.pathname !== window.location.pathname) {
+      window.location.assign(url.toString());
+    }
+  }
 
   return <LanguageContext.Provider value={{language, setLanguage}}>{props.children}</LanguageContext.Provider>;
 }

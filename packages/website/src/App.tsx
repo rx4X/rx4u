@@ -1,7 +1,7 @@
 import {Router, Route} from '@solidjs/router';
 import {lazy} from 'solid-js';
 
-import {LanguageProvider} from './components/LanguageProvider';
+import {LanguageProvider, type Language} from './components/LanguageProvider';
 import {ThemeProvider} from './components/ThemeProvider';
 import {AppLayout} from './layouts/AppLayout';
 import {DocsLayout} from './layouts/DocsLayout';
@@ -21,9 +21,9 @@ interface AppProps {
 
 export function App(props: AppProps) {
   return (
-    <LanguageProvider>
+    <LanguageProvider initialLanguage={getInitialLanguage(props.url)}>
       <ThemeProvider>
-        <Router root={AppLayout} url={props.url}>
+        <Router base={getLocaleBase(props.url)} root={AppLayout} url={props.url}>
           <Route path="/" component={HomePage} />
           <Route path="/docs" component={DocsLayout}>
             <Route path="/getting-started" component={GettingStarted} />
@@ -38,6 +38,16 @@ export function App(props: AppProps) {
       </ThemeProvider>
     </LanguageProvider>
   );
+}
+
+function getLocaleBase(url?: string): string | undefined {
+  const pathname = url ?? (typeof window === 'undefined' ? undefined : window.location.pathname);
+
+  return pathname?.match(/^\/(en-US|zh-CN)(?=\/|$)/)?.[0];
+}
+
+function getInitialLanguage(url?: string): Language {
+  return getLocaleBase(url) === '/zh-CN' ? 'zh' : 'en';
 }
 
 function APIReferencePage() {

@@ -6,11 +6,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/clean.mjs",
     "build": "vite build && vite build --ssr src/entry-server.tsx && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "test": "vitest run --environment node",
+    "test:watch": "vitest --environment node",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "wrangler-dev": "wrangler dev --config cloudflare/wrangler.jsonc",
+    "deploy": "wrangler deploy --config cloudflare/wrangler.jsonc"
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.5",

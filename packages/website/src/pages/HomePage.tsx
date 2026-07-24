@@ -1,3 +1,5 @@
+import {A} from '@solidjs/router';
+
 import {CodeBlock} from '../components/CodeBlock';
 import {useLanguage} from '../components/LanguageProvider';
 
@@ -16,7 +18,7 @@ const HOME_TEXT = {
     lightweight: 'Lightweight and performant',
     installationTitle: 'Get Started in Seconds',
     installationDescription: 'Install rx4u with your favorite package manager and start building reactive applications.',
-    comparisonDescription: 'See how rx4u\'s functional approach compares to traditional object-oriented reactive programming.',
+    comparisonDescription: "See how rx4u's functional approach compares to traditional object-oriented reactive programming.",
     objectOriented: 'RxJS (Object-Oriented)',
     functionalLabel: 'rx4u (Functional)',
     pureFunctions: 'Pure Functions',
@@ -90,18 +92,13 @@ export function HomePage() {
           <p>{text().heroDescription}</p>
 
           <div>
-            <a href="/docs/getting-started">
+            <A href="/docs/getting-started">
               {text().getStarted}
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
-            <a
-              href="/playground"
-
-            >
-              {text().playground}
-            </a>
+            </A>
+            <A href="/playground">{text().playground}</A>
           </div>
         </div>
       </section>
@@ -217,9 +214,7 @@ result$(
           <div>
             {/* RxJS Example */}
             <div>
-              <h3>
-                {text().objectOriented}
-              </h3>
+              <h3>{text().objectOriented}</h3>
               <div>
                 <CodeBlock
                   code={`import { of, map, filter, take } from 'rxjs';
@@ -243,9 +238,7 @@ result$.subscribe(
 
             {/* rx4u Example */}
             <div>
-              <h3>
-                {text().functionalLabel}
-              </h3>
+              <h3>{text().functionalLabel}</h3>
               <div>
                 <CodeBlock
                   code={`import { of, pipeFrom, map, filter, take } from 'rx4u';
@@ -332,7 +325,12 @@ result$(
             <div class="feature-card">
               <div class="feature-icon">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
                 </svg>
               </div>
               <h3>{text().reactiveState}</h3>

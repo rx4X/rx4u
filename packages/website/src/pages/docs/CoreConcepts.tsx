@@ -1,3 +1,5 @@
+import {A} from '@solidjs/router';
+
 import {CodeBlock} from '../../components/CodeBlock';
 import {useLanguage} from '../../components/LanguageProvider';
 
@@ -9,7 +11,11 @@ export function CoreConcepts() {
     <article class="documentation-page core-concepts-page">
       <h1>{isChinese() ? '核心概念' : 'Core Concepts'}</h1>
 
-      <p>{isChinese() ? '理解 rx4u 的基础概念，有助于你构建高效、可维护的响应式应用。' : 'Understanding the fundamental concepts of rx4u will help you build efficient and maintainable reactive applications.'}</p>
+      <p>
+        {isChinese()
+          ? '理解 rx4u 的基础概念，有助于你构建高效、可维护的响应式应用。'
+          : 'Understanding the fundamental concepts of rx4u will help you build efficient and maintainable reactive applications.'}
+      </p>
 
       <h2>{isChinese() ? '函数式响应式编程' : 'Functional Reactive Programming'}</h2>
 
@@ -17,7 +23,11 @@ export function CoreConcepts() {
 
       <h3>{isChinese() ? '1. 纯函数' : '1. Pure Functions'}</h3>
 
-      <p>{isChinese() ? '操作符是函数，而不是流对象上的方法。有状态操作符会在每个订阅中维护自己的状态：' : 'Operators are functions rather than methods on a stream object. Stateful operators keep their state within each subscription:'}</p>
+      <p>
+        {isChinese()
+          ? '操作符是函数，而不是流对象上的方法。有状态操作符会在每个订阅中维护自己的状态：'
+          : 'Operators are functions rather than methods on a stream object. Stateful operators keep their state within each subscription:'}
+      </p>
 
       <div>
         <div>
@@ -72,7 +82,15 @@ const mappedStream$ = pipeFrom(originalStream$, map(x => x * 2));
       <h2>{isChinese() ? '流的表示（Sub<T>）' : 'Stream Representation (Sub<T>)'}</h2>
 
       <p>
-        {isChinese() ? <>在 rx4u 中，流由 <code>Sub&lt;T&gt;</code> 类型表示，它是一个接受回调函数的函数：</> : <>In rx4u, streams are represented by the <code>Sub&lt;T&gt;</code> type - a function that accepts callbacks:</>}
+        {isChinese() ? (
+          <>
+            在 rx4u 中，流由 <code>Sub&lt;T&gt;</code> 类型表示，它是一个接受回调函数的函数：
+          </>
+        ) : (
+          <>
+            In rx4u, streams are represented by the <code>Sub&lt;T&gt;</code> type - a function that accepts callbacks:
+          </>
+        )}
       </p>
 
       <div>
@@ -153,7 +171,15 @@ stream$(x => console.log('Sub 2:', x)); // Gets different random values`}
       <h3>{isChinese() ? '共享订阅' : 'Shared Subscriptions'}</h3>
 
       <p>
-        {isChinese() ? <>使用 <code>share</code> 操作符在订阅者之间共享执行：</> : <>Use the <code>share</code> operator to share execution between subscribers:</>}
+        {isChinese() ? (
+          <>
+            使用 <code>share</code> 操作符在订阅者之间共享执行：
+          </>
+        ) : (
+          <>
+            Use the <code>share</code> operator to share execution between subscribers:
+          </>
+        )}
       </p>
 
       <div>
@@ -174,7 +200,15 @@ sharedStream$(x => console.log('Sub 2:', x)); // Gets same values`}
       <h2>{isChinese() ? '使用 pipeFrom 组合操作符' : 'Operator Composition with pipeFrom'}</h2>
 
       <p>
-        {isChinese() ? <><code>pipeFrom</code> 函数实现优雅的操作符组合：</> : <>The <code>pipeFrom</code> function enables elegant operator composition:</>}
+        {isChinese() ? (
+          <>
+            <code>pipeFrom</code> 函数实现优雅的操作符组合：
+          </>
+        ) : (
+          <>
+            The <code>pipeFrom</code> function enables elegant operator composition:
+          </>
+        )}
       </p>
 
       <div>
@@ -273,37 +307,25 @@ unsubscribe(); // Stops future emissions and releases subscription resources`}
 
       <div>
         <div>
-          <a
-            href="/docs/operators"
-
-          >
+          <A href="/docs/operators">
             <h3>{isChinese() ? '操作符' : 'Operators'}</h3>
             <p>{isChinese() ? '浏览所有可用操作符' : 'Explore all available operators'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/examples"
-
-          >
+          <A href="/examples">
             <h3>{isChinese() ? '示例' : 'Examples'}</h3>
             <p>{isChinese() ? '查看 rx4u 的实际示例' : 'See rx4u in action with real examples'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/playground"
-
-          >
+          <A href="/playground">
             <h3>{isChinese() ? '练习场' : 'Playground'}</h3>
             <p>{isChinese() ? '浏览可编辑的 rx4u 示例' : 'Browse editable rx4u examples'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/api"
-
-          >
+          <A href="/api">
             <h3>{isChinese() ? 'API 参考' : 'API Reference'}</h3>
             <p>{isChinese() ? '完整 API 文档' : 'Complete API documentation'}</p>
-          </a>
+          </A>
         </div>
       </div>
     </article>

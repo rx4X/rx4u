@@ -1,0 +1,11 @@
+{
+  "name": "rx4u",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-07-24",
+  "assets": {
+    "directory": "../dist",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "run_worker_first": true,
+  },
+}

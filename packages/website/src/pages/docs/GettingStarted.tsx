@@ -1,3 +1,5 @@
+import {A} from '@solidjs/router';
+
 import {CodeBlock} from '../../components/CodeBlock';
 import {useLanguage} from '../../components/LanguageProvider';
 
@@ -10,7 +12,9 @@ export function GettingStarted() {
       <h1>{isChinese() ? '开始使用 rx4u' : 'Getting Started with rx4u'}</h1>
 
       <p>
-        {isChinese() ? 'rx4u 是面向 JavaScript 和 TypeScript 的函数式响应式编程库，是轻量、纯函数的 RxJS 替代方案。本指南将帮助你快速上手。' : 'rx4u is a functional reactive programming library for JavaScript and TypeScript that provides a lightweight, pure functional alternative to RxJS. This guide will help you get started quickly.'}
+        {isChinese()
+          ? 'rx4u 是面向 JavaScript 和 TypeScript 的函数式响应式编程库，是轻量、纯函数的 RxJS 替代方案。本指南将帮助你快速上手。'
+          : 'rx4u is a functional reactive programming library for JavaScript and TypeScript that provides a lightweight, pure functional alternative to RxJS. This guide will help you get started quickly.'}
       </p>
 
       <h2>{isChinese() ? '安装' : 'Installation'}</h2>
@@ -158,8 +162,10 @@ sharedRandom$(x => console.log('Shared 2:', x));  // Same value`}
       <div>
         <div>
           <h4>from() - {isChinese() ? '从工厂函数创建' : 'From factory function'}</h4>
-          <CodeBlock code={`from(() => Math.random())
-from(() => crypto.randomUUID())`} />
+          <CodeBlock
+            code={`from(() => Math.random())
+from(() => crypto.randomUUID())`}
+          />
         </div>
         <div>
           <h4>fromPromise() - {isChinese() ? '从 Promise 工厂创建' : 'From Promise factory'}</h4>
@@ -167,18 +173,24 @@ from(() => crypto.randomUUID())`} />
         </div>
         <div>
           <h4>of() - {isChinese() ? '从单个值创建' : 'From individual values'}</h4>
-          <CodeBlock code={`of(1, 2, 3, 4, 5)
-of('a', 'b', 'c')`} />
+          <CodeBlock
+            code={`of(1, 2, 3, 4, 5)
+of('a', 'b', 'c')`}
+          />
         </div>
         <div>
           <h4>interval() - {isChinese() ? '定时器流' : 'Timer stream'}</h4>
-          <CodeBlock code={`interval(1000)  // 0, 1, 2, ... every second
-interval(500)   // 0, 1, 2, ... every 500ms`} />
+          <CodeBlock
+            code={`interval(1000)  // 0, 1, 2, ... every second
+interval(500)   // 0, 1, 2, ... every 500ms`}
+          />
         </div>
         <div>
           <h4>fromEvent() - {isChinese() ? 'DOM 事件' : 'DOM events'}</h4>
-          <CodeBlock code={`fromEvent(button, 'click')
-fromEvent(input, 'input')`} />
+          <CodeBlock
+            code={`fromEvent(button, 'click')
+fromEvent(input, 'input')`}
+          />
         </div>
       </div>
 
@@ -211,43 +223,35 @@ strings$(
 
       <div>
         <div>
-          <a
-            href="/docs/core-concepts"
-
-          >
+          <A href="/docs/core-concepts">
             <h3>{isChinese() ? '核心概念' : 'Core Concepts'}</h3>
             <p>{isChinese() ? '了解流、操作符和组合' : 'Learn about streams, operators, and composition'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/docs/operators"
-
-          >
+          <A href="/docs/operators">
             <h3>{isChinese() ? '操作符' : 'Operators'}</h3>
             <p>{isChinese() ? '浏览所有可用操作符' : 'Explore all available operators'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/playground"
-
-          >
+          <A href="/playground">
             <h3>{isChinese() ? '练习场' : 'Playground'}</h3>
             <p>{isChinese() ? '浏览可编辑的 rx4u 示例' : 'Browse editable rx4u examples'}</p>
-          </a>
+          </A>
 
-          <a
-            href="/api"
-
-          >
+          <A href="/api">
             <h3>{isChinese() ? 'API 参考' : 'API Reference'}</h3>
             <p>{isChinese() ? '完整 API 文档' : 'Complete API documentation'}</p>
-          </a>
+          </A>
         </div>
       </div>
 
       <div>
         <h3>{isChinese() ? '从 RxJS 迁移' : 'Migration from RxJS'}</h3>
-        <p>{isChinese() ? '如果你正在从 RxJS 迁移，请从上面的示例开始。主要区别是 rx4u 通过 pipeFrom 组合函数。' : 'If you\'re coming from RxJS, start with the examples above. The main difference is that rx4u composes functions with pipeFrom.'}</p>
+        <p>
+          {isChinese()
+            ? '如果你正在从 RxJS 迁移，请从上面的示例开始。主要区别是 rx4u 通过 pipeFrom 组合函数。'
+            : "If you're coming from RxJS, start with the examples above. The main difference is that rx4u composes functions with pipeFrom."}
+        </p>
       </div>
     </article>
   );
