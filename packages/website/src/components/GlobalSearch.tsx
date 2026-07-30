@@ -19,7 +19,7 @@ function createApiSearchResult(title: string, description: string, descriptionZh
     titleZh: `${title}()`,
     description,
     descriptionZh,
-    url: `/api#${title}`,
+    url: `/api-reference#${title}`,
     category: 'API',
     categoryZh: 'API',
   };
@@ -100,7 +100,7 @@ const searchData: SearchResult[] = [
 
   // Other pages
   {title: 'Playground', titleZh: '练习场', description: 'Interactive code playground', descriptionZh: '交互式代码练习场', url: '/playground', category: 'Tools', categoryZh: '工具'},
-  {title: 'API Reference', titleZh: 'API 参考', description: 'Complete API documentation', descriptionZh: '完整 API 文档', url: '/api', category: 'Reference', categoryZh: '参考'},
+  {title: 'API Reference', titleZh: 'API 参考', description: 'Complete API documentation', descriptionZh: '完整 API 文档', url: '/api-reference', category: 'Reference', categoryZh: '参考'},
 ];
 
 export function GlobalSearch() {

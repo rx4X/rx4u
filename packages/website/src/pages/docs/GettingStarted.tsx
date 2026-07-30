@@ -238,7 +238,7 @@ strings$(
             <p>{isChinese() ? '浏览可编辑的 rx4u 示例' : 'Browse editable rx4u examples'}</p>
           </A>
 
-          <A href="/api">
+          <A href="/api-reference">
             <h3>{isChinese() ? 'API 参考' : 'API Reference'}</h3>
             <p>{isChinese() ? '完整 API 文档' : 'Complete API documentation'}</p>
           </A>

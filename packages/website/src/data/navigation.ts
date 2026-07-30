@@ -32,23 +32,9 @@ export const docsNavigation: NavItem[] = [
   {
     title: 'API Reference',
     titleZh: 'API 参考',
-    href: '/api',
+    href: '/api-reference',
     description: 'Search available functions and operators',
     descriptionZh: '查询可用函数和操作符',
-  },
-  {
-    title: 'Examples',
-    titleZh: '示例',
-    href: '/examples',
-    description: 'Practical examples and patterns',
-    descriptionZh: '实用示例和模式',
-  },
-  {
-    title: 'Playground',
-    titleZh: '练习场',
-    href: '/playground',
-    description: 'Try rx4u examples in the browser',
-    descriptionZh: '在浏览器中体验 rx4u 示例',
   },
 ];
 

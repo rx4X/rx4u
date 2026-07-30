@@ -1,4 +1,4 @@
-import {createContext, createSignal, useContext, onMount, type ParentProps} from 'solid-js';
+import {createContext, createSignal, useContext, type ParentProps} from 'solid-js';
 
 type Theme = 'light' | 'dark';
 
@@ -19,7 +19,7 @@ export const useTheme = () => {
 };
 
 export function ThemeProvider(props: ParentProps) {
-  const [theme, setThemeSignal] = createSignal<Theme>('light');
+  const [theme, setThemeSignal] = createSignal<Theme>(getInitialTheme());
 
   const setTheme = (newTheme: Theme) => {
     setThemeSignal(newTheme);
@@ -36,14 +36,6 @@ export function ThemeProvider(props: ParentProps) {
     setTheme(theme() === 'light' ? 'dark' : 'light');
   };
 
-  onMount(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('rx4u-theme') as Theme;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-  });
-
   const contextValue: ThemeContextType = {
     theme,
     toggleTheme,
@@ -51,4 +43,12 @@ export function ThemeProvider(props: ParentProps) {
   };
 
   return <ThemeContext.Provider value={contextValue}>{props.children}</ThemeContext.Provider>;
+}
+
+function getInitialTheme(): Theme {
+  if (typeof document === 'undefined') {
+    return 'light';
+  }
+
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
 }

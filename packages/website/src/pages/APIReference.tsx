@@ -569,91 +569,88 @@ export function APIReference() {
   };
 
   return (
-    <div class="api-reference-page">
-      <div class="page-container">
-        {/* Header */}
+    <article class="documentation-page operators-page api-reference-page">
+      <h1>{language() === 'zh' ? 'API 参考' : 'API Reference'}</h1>
+
+      <p>{language() === 'zh' ? 'rx4u 操作符、创建函数和工具函数的完整文档。' : 'Complete documentation of all rx4u operators, creation functions, and utilities.'}</p>
+
+      <div class="operator-search">
         <div>
-          <h1>{language() === 'zh' ? 'API 参考' : 'API Reference'}</h1>
-          <p>{language() === 'zh' ? 'rx4u 操作符、创建函数和工具函数的完整文档。' : 'Complete documentation of all rx4u operators, creation functions, and utilities.'}</p>
+          <input type="text" placeholder={language() === 'zh' ? '搜索操作符...' : 'Search operators...'} value={searchTerm()} onInput={(e) => setSearchTerm(e.currentTarget.value)} />
         </div>
+      </div>
 
-        {/* Search and Filter */}
+      <div class="operator-category-tabs">
         <div>
-          <div>
-            <input
-              type="text"
-              placeholder={language() === 'zh' ? '搜索操作符...' : 'Search operators...'}
-              value={searchTerm()}
-              onInput={(e) => setSearchTerm(e.target.value)}
-
-            />
-          </div>
-
-          <div>
-            <For each={categories}>
-              {(category) => (
-                <button
-                  onClick={() => setSelectedCategory(category.id)}
-                  class={`category-button ${selectedCategory() === category.id ? 'is-selected' : ''}`}
-                  title={language() === 'zh' ? CATEGORY_LABELS[category.id] : category.description}
-                >
-                  {language() === 'zh' ? CATEGORY_LABELS[category.id] : category.name}
-                </button>
-              )}
-            </For>
-          </div>
-        </div>
-
-        {/* Operators Grid */}
-        <div>
-          <For each={filteredOperators()}>
-            {(operator) => (
-              <div class="api-operator-card" id={operator.name}>
-                <div class="api-operator-card-content">
-                  <div class="api-operator-heading">
-                    <h3>{operator.name}</h3>
-                    <span>{language() === 'zh' ? CATEGORY_LABELS[operator.category] : operator.category}</span>
-                  </div>
-
-                  <div class="api-operator-signature">
-                    <code>{operator.signature}</code>
-                  </div>
-
-                  <p class="api-operator-description">{language() === 'zh' ? OPERATOR_DESCRIPTIONS_ZH[operator.name] : operator.description}</p>
-
-                  <Show when={operator.parameters && operator.parameters.length > 0}>
-                    <div class="api-operator-details">
-                      <h4>{language() === 'zh' ? '参数：' : 'Parameters:'}</h4>
-                      <ul>
-                        <For each={operator.parameters}>
-                          {(param) => (
-                            <li>
-                              <code>{param.name}</code>: {param.type} - {language() === 'zh' ? PARAMETER_DESCRIPTIONS_ZH[param.description] : param.description}
-                            </li>
-                          )}
-                        </For>
-                      </ul>
-                    </div>
-                  </Show>
-
-                  <Show when={operator.example}>
-                    <div class="api-operator-details">
-                      <h4>{language() === 'zh' ? '示例：' : 'Example:'}</h4>
-                      <CodeBlock code={operator.example!} />
-                    </div>
-                  </Show>
-                </div>
-              </div>
+          <For each={categories}>
+            {(category) => (
+              <button
+                onClick={() => setSelectedCategory(category.id)}
+                class={`category-button ${selectedCategory() === category.id ? 'is-selected' : ''}`}
+                title={language() === 'zh' ? CATEGORY_LABELS[category.id] : category.description}
+              >
+                {language() === 'zh' ? CATEGORY_LABELS[category.id] : category.name}
+              </button>
             )}
           </For>
         </div>
-
-        <Show when={filteredOperators().length === 0}>
-          <div>
-            <p>{language() === 'zh' ? '未找到符合条件的操作符。' : 'No operators found matching your criteria.'}</p>
-          </div>
-        </Show>
       </div>
-    </div>
+
+      <Show when={selectedCategory() !== 'all'}>
+        <div>
+          <div class="operator-category-overview">
+            <h3>{language() === 'zh' ? `${CATEGORY_LABELS[selectedCategory()]}操作符` : `${categories.find((category) => category.id === selectedCategory())?.name} Operators`}</h3>
+            <p>{language() === 'zh' ? `用于${CATEGORY_LABELS[selectedCategory()]}相关处理的操作符。` : categories.find((category) => category.id === selectedCategory())?.description}</p>
+          </div>
+        </div>
+      </Show>
+
+      <div class="operator-list">
+        <For each={filteredOperators()}>
+          {(operator) => (
+            <div class="operator-card api-operator-card" id={operator.name}>
+              <div class="api-operator-heading">
+                <h3>{operator.name}</h3>
+                <span>{language() === 'zh' ? CATEGORY_LABELS[operator.category] : operator.category}</span>
+              </div>
+
+              <div class="api-operator-signature">
+                <code>{operator.signature}</code>
+              </div>
+
+              <p class="api-operator-description">{language() === 'zh' ? OPERATOR_DESCRIPTIONS_ZH[operator.name] : operator.description}</p>
+
+              <Show when={operator.parameters && operator.parameters.length > 0}>
+                <div class="api-operator-details">
+                  <h4>{language() === 'zh' ? '参数：' : 'Parameters:'}</h4>
+                  <ul>
+                    <For each={operator.parameters}>
+                      {(param) => (
+                        <li>
+                          <code>{param.name}</code>: {param.type} - {language() === 'zh' ? PARAMETER_DESCRIPTIONS_ZH[param.description] : param.description}
+                        </li>
+                      )}
+                    </For>
+                  </ul>
+                </div>
+              </Show>
+
+              <Show when={operator.example}>
+                <div class="api-operator-details">
+                  <h4>{language() === 'zh' ? '示例：' : 'Example:'}</h4>
+                  <CodeBlock code={operator.example!} />
+                </div>
+              </Show>
+            </div>
+          )}
+        </For>
+      </div>
+
+      <Show when={filteredOperators().length === 0}>
+        <div>
+          <p>{language() === 'zh' ? '未找到符合条件的操作符。' : 'No operators found matching your criteria.'}</p>
+        </div>
+      </Show>
+    </article>
   );
 }

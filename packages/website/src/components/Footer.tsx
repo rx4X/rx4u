@@ -25,13 +25,7 @@ export function Footer() {
                 : 'A functional reactive programming library for JavaScript and TypeScript. Lightweight, pure functional design inspired by RxJS.'}
             </p>
             <div class="footer-social-links">
-              <a
-                href="https://npmjs.com/package/rx4u"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-link"
-                title="npm"
-              >
+              <a href="https://npmjs.com/package/rx4u" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="npm">
                 <svg fill="currentColor" viewBox="0 0 24 24">
                   <path d="M0 7v10h6.7v1.3H12V17h12V7H0zm6.7 8.7H5.3v-5.4H2V8.7h4.7v7zM12 15.7H8.7V8.7H12v7zm11.3 0h-1.4v-5.4h-1.3v5.4h-1.4v-5.4H17v5.4h-1.3V8.7h7.6v7z" />
                 </svg>
@@ -44,24 +38,16 @@ export function Footer() {
             <h3>{isChinese() ? '文档' : 'Documentation'}</h3>
             <ul>
               <li>
-                <A href="/docs/getting-started">
-                  {isChinese() ? '快速开始' : 'Getting Started'}
-                </A>
+                <A href="/docs/getting-started">{isChinese() ? '快速开始' : 'Getting Started'}</A>
               </li>
               <li>
-                <A href="/docs/core-concepts">
-                  {isChinese() ? '核心概念' : 'Core Concepts'}
-                </A>
+                <A href="/docs/core-concepts">{isChinese() ? '核心概念' : 'Core Concepts'}</A>
               </li>
               <li>
-                <A href="/docs/operators">
-                  {isChinese() ? '操作符' : 'Operators'}
-                </A>
+                <A href="/docs/operators">{isChinese() ? '操作符' : 'Operators'}</A>
               </li>
               <li>
-                <A href="/api">
-                  {isChinese() ? 'API 参考' : 'API Reference'}
-                </A>
+                <A href="/api-reference">{isChinese() ? 'API 参考' : 'API Reference'}</A>
               </li>
             </ul>
           </div>
@@ -71,14 +57,10 @@ export function Footer() {
             <h3>{isChinese() ? '项目' : 'Project'}</h3>
             <ul>
               <li>
-                <A href="/playground">
-                  {isChinese() ? '练习场' : 'Playground'}
-                </A>
+                <A href="/playground">{isChinese() ? '练习场' : 'Playground'}</A>
               </li>
               <li>
-                <A href="/examples">
-                  {isChinese() ? '示例' : 'Examples'}
-                </A>
+                <A href="/examples">{isChinese() ? '示例' : 'Examples'}</A>
               </li>
             </ul>
           </div>
@@ -87,7 +69,9 @@ export function Footer() {
         {/* Bottom Section */}
         <div class="footer-bottom">
           <div class="footer-bottom-content">
-            <p>© {currentYear} rx4u. {isChinese() ? '保留所有权利。' : 'All rights reserved.'}</p>
+            <p>
+              © {currentYear} rx4u. {isChinese() ? '保留所有权利。' : 'All rights reserved.'}
+            </p>
           </div>
         </div>
       </div>

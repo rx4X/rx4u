@@ -517,7 +517,7 @@ const result$ = pipeFrom(
             <p>{language() === 'zh' ? '浏览可编辑的 rx4u 示例' : 'Browse editable rx4u examples'}</p>
           </A>
 
-          <A href="/api">
+          <A href="/api-reference">
             <h3>{language() === 'zh' ? 'API 参考' : 'API Reference'}</h3>
             <p>{language() === 'zh' ? '完整 API 文档' : 'Complete API documentation'}</p>
           </A>
