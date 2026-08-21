@@ -85,4 +85,5 @@ packages/cms/admin/app/public/admin.svg
 packages/cms/admin/app/public/favicon.ico
 .aws-sam
 demoes/
+docs/
 .wrangler/
