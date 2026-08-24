@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://rx4u.dev/en-US</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN" />
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN" />
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/docs/getting-started</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/getting-started" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/getting-started" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/docs/getting-started</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/getting-started" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/getting-started" />
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/docs/core-concepts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/core-concepts" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/core-concepts" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/docs/core-concepts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/core-concepts" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/core-concepts" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/docs/operators</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/operators" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/operators" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/docs/operators</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/docs/operators" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/docs/operators" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/api-reference</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/api-reference" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/api-reference" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/api-reference</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/api-reference" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/api-reference" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/examples</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/examples" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/examples" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/examples</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/examples" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/examples" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/en-US/playground</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/playground" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/playground" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rx4u.dev/zh-CN/playground</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rx4u.dev/en-US/playground" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rx4u.dev/zh-CN/playground" />
+    <priority>0.7</priority>
+  </url>
+</urlset>

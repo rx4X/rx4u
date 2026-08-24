@@ -1,0 +1,30 @@
+# rx4u
+
+> A lightweight, pure functional reactive programming library for JavaScript and TypeScript.
+
+rx4u is inspired by RxJS but uses plain functions instead of Observable classes. Streams and operators are functions that can be composed with pipeFrom.
+
+## English Documentation
+
+- [Home](https://rx4u.dev/en-US): Overview of rx4u and functional reactive programming.
+- [Getting Started](https://rx4u.dev/en-US/docs/getting-started): Installation and first reactive stream.
+- [Core Concepts](https://rx4u.dev/en-US/docs/core-concepts): Streams, operators, subscriptions, and composition.
+- [Operators](https://rx4u.dev/en-US/docs/operators): Operators for transforming, filtering, combining, and controlling streams.
+- [API Reference](https://rx4u.dev/en-US/api-reference): Complete reference for operators, creation functions, and utilities.
+- [Examples](https://rx4u.dev/en-US/examples): Practical rx4u examples and reactive programming patterns.
+- [Playground](https://rx4u.dev/en-US/playground): Browser-based environment for experimenting with rx4u examples.
+
+## Chinese Documentation
+
+- [Home](https://rx4u.dev/zh-CN): rx4u overview in Chinese.
+- [Getting Started](https://rx4u.dev/zh-CN/docs/getting-started): Installation and first reactive stream in Chinese.
+- [Core Concepts](https://rx4u.dev/zh-CN/docs/core-concepts): Streams, operators, subscriptions, and composition in Chinese.
+- [Operators](https://rx4u.dev/zh-CN/docs/operators): Operator reference in Chinese.
+- [API Reference](https://rx4u.dev/zh-CN/api-reference): Complete API reference in Chinese.
+- [Examples](https://rx4u.dev/zh-CN/examples): Practical examples in Chinese.
+- [Playground](https://rx4u.dev/zh-CN/playground): Browser-based playground in Chinese.
+
+## Project Resources
+
+- [GitHub Repository](https://github.com/rx4X/rx4u): Source code, issues, and contribution information.
+- [npm Package](https://www.npmjs.com/package/rx4u): Published rx4u package and version information.
